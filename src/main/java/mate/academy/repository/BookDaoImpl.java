@@ -1,22 +1,20 @@
 package mate.academy.repository;
 
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import mate.academy.exception.EntityNotFoundException;
 import mate.academy.model.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
+@RequiredArgsConstructor
 @Repository
 public class BookDaoImpl implements BookRepository {
 
     private final SessionFactory sessionFactory;
-
-    @Autowired
-    public BookDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Override
     public Book save(Book book) {
@@ -46,7 +44,19 @@ public class BookDaoImpl implements BookRepository {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("SELECT b from Book b", Book.class).getResultList();
         } catch (Exception e) {
-            throw new RuntimeException("Can't get all books from db", e);
+            throw new EntityNotFoundException("Can't get all books from db", e);
+        }
+    }
+
+    @Override
+    public Book findById(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<Book> getBookById = session.createQuery(
+                    "FROM Book b WHERE b.id = :id", Book.class);
+            getBookById.setParameter("id", id);
+            return getBookById.getSingleResult();
+        } catch (Exception e) {
+            throw new EntityNotFoundException("Can't get book with id " + id + " from db", e);
         }
     }
 }
