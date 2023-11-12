@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: adding-records-into-books-table
+      author: mskrypka
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: title
+                  value: first book
+              - column:
+                  name: author
+                  value: first author
+              - column:
+                  name: isbn
+                  value: firstisbn
+              - column:
+                  name: price
+                  value: 101
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: title
+                  value: second book
+              - column:
+                  name: author
+                  value: second author
+              - column:
+                  name: isbn
+                  value: secondisbn
+              - column:
+                  name: price
+                  value: 102
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: title
+                  value: third book
+              - column:
+                  name: author
+                  value: first author
+              - column:
+                  name: isbn
+                  value: thirdisbn
+              - column:
+                  name: price
+                  value: 103
+
+
+
+
+
+
