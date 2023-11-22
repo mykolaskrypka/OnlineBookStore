@@ -57,6 +57,60 @@ databaseChangeLog:
               - column:
                   name: price
                   value: 103
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: title
+                  value: 4 book
+              - column:
+                  name: author
+                  value: 2 author
+              - column:
+                  name: isbn
+                  value: 4isbn
+              - column:
+                  name: price
+                  value: 104
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: title
+                  value: 5 book
+              - column:
+                  name: author
+                  value: 2 author
+              - column:
+                  name: isbn
+                  value: 5isbn
+              - column:
+                  name: price
+                  value: 105
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: title
+                  value: 6 book
+              - column:
+                  name: author
+                  value: 2 author
+              - column:
+                  name: isbn
+                  value: 6isbn
+              - column:
+                  name: price
+                  value: 105
 
 
 
