@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-    private UserRepository userRepository;
-    private UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
     public UserResponseDto findByEmail(String email) {
