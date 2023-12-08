@@ -8,7 +8,6 @@ import mate.academy.dto.UserRegistrationRequestDto;
 import mate.academy.dto.UserResponseDto;
 import mate.academy.exception.RegistrationException;
 import mate.academy.service.UserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +26,6 @@ public class AuthenticationController {
     public ResponseEntity<UserResponseDto> register(
             @RequestBody @Valid UserRegistrationRequestDto requestDto)
             throws RegistrationException {
-        return new ResponseEntity<>(userService.register(requestDto), HttpStatus.OK);
+        return ResponseEntity.ok(userService.register(requestDto));
     }
 }
