@@ -23,8 +23,8 @@ public class BookServiceImpl implements BookService {
     private final BookSpecificationBuilder bookSpecificationBuilder;
 
     @Override
-    public Book save(CreateBookRequestDto requestDto) {
-        return bookRepository.save(bookMapper.toModel(requestDto));
+    public void save(CreateBookRequestDto requestDto) {
+        bookRepository.save(bookMapper.toModel(requestDto));
     }
 
     @Override
