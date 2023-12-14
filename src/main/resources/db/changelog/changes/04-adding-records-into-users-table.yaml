@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: adding-records-into-users-table
+      author: mskrypka
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: email
+                  value: user1@mail.com
+              - column:
+                  name: password
+                  value: 123456
+              - column:
+                  name: first_name
+                  value: Alice
+              - column:
+                  name: last_name
+                  value: Jonson
+              - column:
+                  name: shipping_address
+                  value: address 1
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: email
+                  value: user2@mail.com
+              - column:
+                  name: password
+                  value: 123456
+              - column:
+                  name: first_name
+                  value: Bob
+              - column:
+                  name: last_name
+                  value: Jonson
+              - column:
+                  name: shipping_address
+                  value: address 2
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: email
+                  value: user3@mail.com
+              - column:
+                  name: password
+                  value: 123456
+              - column:
+                  name: first_name
+                  value: John
+              - column:
+                  name: last_name
+                  value: Jonson
+              - column:
+                  name: shipping_address
+                  value: address 3
+
+
+
+
+
+
