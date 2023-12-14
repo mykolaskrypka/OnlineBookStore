@@ -1,5 +1,6 @@
 package mate.academy.service;
 
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import mate.academy.dto.UserRegistrationRequestDto;
 import mate.academy.dto.UserResponseDto;
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
+    private final RoleService roleService;
 
     @Override
     public UserResponseDto findByEmail(String email) {
@@ -33,6 +35,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setEmail(requestDto.getEmail());
         user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
+        user.setRoles(Set.of(roleService.getByName("USER")));
         User savedUser = userRepository.save(user);
         return userMapper.toDto(savedUser);
     }
