@@ -53,16 +53,16 @@ databaseChangeLog:
                   value: 3
               - column:
                   name: email
-                  value: user3@mail.com
+                  value: admin@mail.com
               - column:
                   name: password
-                  value: 123456
+                  value: 12345678
               - column:
                   name: first_name
-                  value: John
+                  value: Admin
               - column:
                   name: last_name
-                  value: Jonson
+                  value: Admin
               - column:
                   name: shipping_address
                   value: address 3
