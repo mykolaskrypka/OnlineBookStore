@@ -30,18 +30,15 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain chain
     ) throws IOException, ServletException {
-
         String token = extractToken(request);
         boolean isTokenValid = jwtUtil.isValidToken(token);
         if (token != null & isTokenValid) {
             String username = jwtUtil.getUsername(token);
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
             Authentication authentication = new UsernamePasswordAuthenticationToken(
-                    userDetails, null, userDetails.getAuthorities()
-            );
+                    userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-
         chain.doFilter(request, response);
     }
 
