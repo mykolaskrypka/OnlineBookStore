@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.dto.BookDto;
+import mate.academy.dto.BookDtoWithoutCategoryIds;
 import mate.academy.dto.BookSearchParameters;
 import mate.academy.dto.CreateBookRequestDto;
 import mate.academy.service.BookService;
@@ -33,8 +34,10 @@ public class BookController {
     @Operation(summary = "Get all books", description = "Get a list of all available books")
     @GetMapping
     @PreAuthorize("hasRole('ROLE_USER')")
-    public ResponseEntity<List<BookDto>> getAll(@PageableDefault(size = 5) Pageable pageable) {
-        return new ResponseEntity<>(bookService.findAll(pageable), HttpStatus.FOUND);
+    public ResponseEntity<List<BookDtoWithoutCategoryIds>> getAll(
+            @PageableDefault(size = 5) Pageable pageable) {
+        return new ResponseEntity<>(bookService.findAllWithoutCategoryIds(pageable),
+                HttpStatus.FOUND);
     }
 
     @Operation(summary = "Get book by id", description = "Get book by id")

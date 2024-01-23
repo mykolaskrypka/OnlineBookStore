@@ -2,6 +2,7 @@ package mate.academy.mapper;
 
 import mate.academy.config.MapperConfig;
 import mate.academy.dto.CategoryDto;
+import mate.academy.dto.CreateCategoryRequestDto;
 import mate.academy.model.Category;
 import org.mapstruct.Mapper;
 
@@ -9,5 +10,5 @@ import org.mapstruct.Mapper;
 public interface CategoryMapper {
     CategoryDto toDto(Category category);
 
-    Category toModel(CategoryDto requestDto);
+    Category toModel(CreateCategoryRequestDto requestDto);
 }

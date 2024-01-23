@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import mate.academy.config.MapperConfig;
 import mate.academy.dto.BookDto;
+import mate.academy.dto.BookDtoWithoutCategoryIds;
 import mate.academy.dto.CreateBookRequestDto;
 import mate.academy.model.Book;
 import mate.academy.model.Category;
@@ -16,6 +17,8 @@ import org.mapstruct.MappingTarget;
 public interface BookMapper {
     @Mapping(target = "categoryIds", ignore = true)
     BookDto toDto(Book book);
+
+    BookDtoWithoutCategoryIds toDtoWithoutCategories(Book book);
 
     @AfterMapping
     default void setCategoryIds(@MappingTarget BookDto bookDto, Book book) {
